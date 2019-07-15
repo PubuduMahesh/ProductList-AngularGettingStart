@@ -41,7 +41,7 @@
 							*ngIf = 'showImage'>
 						</td>
 						<td>{{product.productName}}</td>
-						<td>{{product.productCode}}</td>
+						<td>{{product.productCode | convertToSpacesPipe:'-'}}</td>
 						<td>{{product.releaseDate}}</td>
 						<td>{{product.price | currency:'SLR':'RS '}}</td>
 						<td>{{product.starRating}}
