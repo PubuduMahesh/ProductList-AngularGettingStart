@@ -96,5 +96,9 @@ export class ProductListComponent implements OnInit{
   ngOnInit(): void{
   	console.log('on init method fired');
   }
+
+  onNotify(eventValue:string):void{
+  	this.pageTitle = 'Product List ' + eventValue;
+  }
   
 }

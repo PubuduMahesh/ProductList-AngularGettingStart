@@ -22,7 +22,7 @@
 					<tr>
 						<th>
 							<button class='btn btn-primary'
-							(click) = 'toggleImage()'>//event binding
+							(click) = 'toggleImage()'><!event binding>
 								{{showImage? 'Hide':'Show'}} Image
 							</button>
 						</th>
@@ -45,7 +45,10 @@
 						<td>{{product.productCode | convertToSpacesPipe:'-'}}</td>
 						<td>{{product.releaseDate}}</td>
 						<td>{{product.price | currency:'SLR':'RS '}}</td>
-						<td><pm-star [rating] = 'product.starRating'></pm-star></td>//property binding, [->]
+						<td><pm-star 
+							[rating] = 'product.starRating'
+							(notify) = 'onNotify($event)'
+							></pm-star></td><!eventbinding>
 					</tr>
 				</tbody>
 			</table>
