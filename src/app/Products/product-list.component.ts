@@ -1,6 +1,7 @@
 import {Component,OnInit} from '@angular/core';
 
 import {IProduct} from './product';
+import {ProductService} './product.service';
 
 @Component({
 	selector: 'pm-products',
@@ -16,9 +17,8 @@ export class ProductListComponent implements OnInit{
 	
 	filteredProductList: IProduct[] = [];
 
-	constructor(){
-		this.filteredProductList = this.products;
-		this.listFilter = 'cart';
+	constructor(private productService:ProductService){		
+		
 	}
 
 	_listFilter: string;
@@ -45,7 +45,8 @@ export class ProductListComponent implements OnInit{
   }
 
   ngOnInit(): void{
-  	console.log('on init method fired');
+  	this.products = this.productService.getProducts();
+  	this.filteredProductList = this.products;
   }
 
   onNotify(eventValue:string):void{
