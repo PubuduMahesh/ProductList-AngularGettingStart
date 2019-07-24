@@ -1,7 +1,7 @@
 import {Component,OnInit} from '@angular/core';
 
 import {IProduct} from './product';
-import {ProductService} './product.service';
+import {ProductService} from './product.service';
 
 @Component({
 	selector: 'pm-products',
@@ -14,6 +14,7 @@ export class ProductListComponent implements OnInit{
 	imageWidth: number = 50;
 	imageMargin: number = 2;
 	showImage: boolean = false;
+	errorMessage: string;
 	
 	filteredProductList: IProduct[] = [];
 
@@ -45,9 +46,11 @@ export class ProductListComponent implements OnInit{
   }
 
   ngOnInit(): void{
-  	this.products = this.productService.getProducts().subscribe(
-  	products => this.products = products);
-  	this.filteredProductList = this.products;
+  	this.productService.getProducts().subscribe(
+  	products => {this.products = products;
+  	this.filteredProductList = this.products;},
+  	error => this.errorMessage = <any> error);
+  	
   }
 
   onNotify(eventValue:string):void{
