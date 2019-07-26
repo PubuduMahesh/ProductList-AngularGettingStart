@@ -24,7 +24,10 @@ import {WelcomeComponent} from './home/welcome.component';
     BrowserModule,
     FormsModule,
     HttpClientModule,
-    RouterModule
+    RouterModule.forRoot([
+    {path: 'products', componet: ProductListComponent},
+    {path: 'products/:id',component: ProductDetailComponent}
+    ])
   ],
   bootstrap: [AppComponent]
 })
