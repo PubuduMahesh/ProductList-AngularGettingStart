@@ -26,7 +26,8 @@ import {WelcomeComponent} from './home/welcome.component';
     HttpClientModule,
     RouterModule.forRoot([
     {path: 'products', componet: ProductListComponent},
-    {path: 'products/:id',component: ProductDetailComponent}
+    {path: 'products/:id',component: ProductDetailComponent},
+    {path: 'welcome', component: WelcomeComponent}
     ])
   ],
   bootstrap: [AppComponent]
