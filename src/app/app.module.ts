@@ -27,7 +27,8 @@ import {WelcomeComponent} from './home/welcome.component';
     RouterModule.forRoot([
     {path: 'products', componet: ProductListComponent},
     {path: 'products/:id',component: ProductDetailComponent},
-    {path: 'welcome', component: WelcomeComponent}
+    {path: 'welcome', component: WelcomeComponent},
+    {path: '**', redirectTo: 'welcome', pathMatch: 'full'}
     ])
   ],
   bootstrap: [AppComponent]
