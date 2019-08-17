@@ -26,14 +26,12 @@ export class ProductListComponent implements OnInit{
 		return this._listFilter;
 	}
 
-	set listFilter(item:string){console.log('ksusslfa');
+	set listFilter(item:string){
 		this._listFilter = item;
 		this.filteredProductList = this._listFilter ? this.performFilter(this._listFilter):this.products;
  	}
 
-	products: IProduct[]=[
-	  
-  ];
+	products: IProduct[]=[];
 
   performFilter(filterBy:string): IProduct[]{
   	filterBy = filterBy.toLowerCase();
@@ -49,6 +47,8 @@ export class ProductListComponent implements OnInit{
   	products => {this.products = products;
   	this.filteredProductList = this.products;},
   	error => this.errorMessage = <any> error);
+
+  	console.log(this.products);
   	
   }
 

@@ -8,8 +8,9 @@ import { AppComponent } from './app.component';
 import {ProductListComponent} from './Products/product-list.component';
 import {ConvertToSpacesPipe} from './shared/convtert-to-spaces.pipe';
 import {StarComponent} from './shared/star.component';
-import { ProductDetailComponent } from './products/product-detail.component';
 import {WelcomeComponent} from './home/welcome.component';
+import { FuelChartComponent } from './fuel/fuel-chart.component';
+import { NewFuelChargeComponent } from './new-fuel-charge/new-fuel-charge.component';
 
 @NgModule({
   declarations: [
@@ -17,16 +18,17 @@ import {WelcomeComponent} from './home/welcome.component';
     ProductListComponent,
     ConvertToSpacesPipe,
     StarComponent,
-    ProductDetailComponent,
-    WelcomeComponent
+    WelcomeComponent,
+    FuelChartComponent,
+    NewFuelChargeComponent,
   ],
   imports: [
     BrowserModule,
-    FormsModule,
+    FormsModule,  
     HttpClientModule,
     RouterModule.forRoot([
     {path: 'products', component: ProductListComponent},
-    {path: 'products/:id',component: ProductDetailComponent},
+    {path: 'fuel-chart', component: FuelChartComponent},
     {path: 'welcome', component: WelcomeComponent},
     {path: '**', redirectTo: 'welcome', pathMatch: 'full'}
     ])
