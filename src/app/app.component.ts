@@ -5,12 +5,12 @@ import {Component} from '@angular/core';
 		<nav class='navbar navbar-expand navbar-light bg-light'>
         <a class='navbar-brand'>{{pageTitle}}</a>
         <ul class='nav nav-pills'>
-          <li><a class='nav-link' routerLinkActive='active' [routerLink]="['/welcome']">Home</a></li>
-          <li>
-            <a class='nav-link' routerLinkActive='active' [routerLink]="['/products']">Product List</a>
-          </li>
+          <li><a class='nav-link' routerLinkActive='active' [routerLink]="['/welcome']">Home</a></li>          
           <li>
             <a class='nav-link' routerLinkActive='active' [routerLink]="['/fuel-chart']">FuelChart</a>
+          </li>
+          <li>
+            <a class='nav-link' routerLinkActive='active' [routerLink]="['/new-fuel-charge']">New Fuel Charge</a>
           </li>
         </ul>
     </nav>
@@ -22,5 +22,5 @@ import {Component} from '@angular/core';
 })
 
 export class AppComponent{
-	pageTitle: string = 'Acme Product Management';
+	pageTitle: string = 'Fuel Comsumption Tracking System';
 }

@@ -10,15 +10,23 @@ import {IFuel} from './fuel';
 })
 export class FuelDataService {
 	//private fuelDataUrl = 'api/fuel/fuel.json';
-	private fuelDataUrl = 'http://localhost:4000/api/fuel-read';
+	private fuelReadDataUrl = 'http://localhost:4000/api/fuel-read';
+	private fuelUpdateUrl = 'http://localhost:4000/api/fuel-write';
 
 	constructor(private http:HttpClient){}
 	
 	getFuelData():Observable<IFuel[]>{
-		return this.http.get<IFuel[]>(this.fuelDataUrl).pipe(
+		return this.http.get<IFuel[]>(this.fuelReadDataUrl).pipe(
 			tap(data => console.log('All: '+JSON.stringify(data))),
 			catchError(this.handleError)
 		);
+	}
+
+	updateFuelData(fuel:IFuel){
+		return this.http.post<IFuel>(this.fuelUpdateUrl,fuel).subscribe(
+	      (res) => console.log(res),
+	      (err) => console.log(err)
+    	);
 	}
 
 	private handleError(err:HttpErrorResponse){

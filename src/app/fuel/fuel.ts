@@ -1,4 +1,4 @@
 export interface IFuel{
 	"price": number;
-	"date": Date;
+	"milage": number;
 }

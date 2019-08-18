@@ -15,8 +15,7 @@ import {FuelDataService} from './fuel-data.service';
 export class FuelChartComponent implements OnInit {
 
   chart:any;
-  fuelData:IFuel[];
-  dates:Date[] = new Array();
+  milage:number[] = new Array();
   price:number[] = new Array();
   
 
@@ -28,14 +27,14 @@ export class FuelChartComponent implements OnInit {
   		this._fuelService.getFuelData().subscribe((res: IFuel[]) => {
       res.forEach(y => {
           this.price.push(y.price);
-          this.dates.push(y.date);
+          this.milage.push(y.milage);
         })
       });
 
       this.chart = new Chart('canvas', {
           type: 'line',
           data: {
-            labels: this.dates,
+            labels: this.milage,
             datasets: [
               { 
                 data: this.price,
@@ -50,7 +49,6 @@ export class FuelChartComponent implements OnInit {
             },
             scales: {
               xAxes: [{
-                type:'time',
                 display: true
               }],
               yAxes: [{
